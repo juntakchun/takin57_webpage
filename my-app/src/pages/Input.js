@@ -12,23 +12,24 @@ const Input = () => {
 		com_b: 0,
 		com_t: 0,
 		com_g: 0,
+		com_a: 0,
 	});
 	
-	const {food_1, food_2, food_3, food_4, food_5, com_b, com_t, com_g} = inputs;
+	const {food_1, food_2, food_3, food_4, food_5, com_b, com_t, com_g, com_a} = inputs;
 	//const [sum, setSum] = useState(0);
 	const [result, setResult] = useState({
-		result_1_b: 0,result_1_t: 0,result_1_g: 0,
-		result_2_b: 0,result_2_t: 0,result_2_g: 0,
-		result_3_b: 0,result_3_t: 0,result_3_g: 0,
-		result_4_b: 0,result_4_t: 0,result_4_g: 0,
-		result_5_b: 0,result_5_t: 0,result_5_g: 0,
+		result_1_b: 0,result_1_t: 0,result_1_g: 0,result_1_a: 0,
+		result_2_b: 0,result_2_t: 0,result_2_g: 0,result_2_a: 0,
+		result_3_b: 0,result_3_t: 0,result_3_g: 0,result_3_a: 0,
+		result_4_b: 0,result_4_t: 0,result_4_g: 0,result_4_a: 0,
+		result_5_b: 0,result_5_t: 0,result_5_g: 0,result_5_a: 0,
 	})
 	
-	const {result_1_b, result_1_g, result_1_t,
-		  result_2_b, result_2_g, result_2_t,
-		  result_3_b, result_3_g, result_3_t,
-		  result_4_b, result_4_g, result_4_t,
-		  result_5_b, result_5_g, result_5_t} = result;
+	const {result_1_b, result_1_g, result_1_t, result_1_a,
+		  result_2_b, result_2_g, result_2_t, result_2_a,
+		  result_3_b, result_3_g, result_3_t, result_3_a,
+		  result_4_b, result_4_g, result_4_t, result_4_a,
+		  result_5_b, result_5_g, result_5_t, result_5_a,} = result;
 	
 	/*const [result, setResult] = useState([
 		{
@@ -81,14 +82,14 @@ const Input = () => {
 
 	
 	const onClick = (e) => {
-		var sum = com_b + com_t + com_g;
+		var sum = com_b + com_t + com_g + com_a;
 		
 		setResult({
-		result_1_b: (food_1*com_b/sum).toFixed(2),result_1_t: (food_1*com_t/sum).toFixed(2),result_1_g: (food_1*com_g/sum).toFixed(2),
-		result_2_b: (food_2*com_b/sum).toFixed(2),result_2_t: (food_2*com_t/sum).toFixed(2),result_2_g: (food_2*com_g/sum).toFixed(2),
-		result_3_b: (food_3*com_b/sum).toFixed(2),result_3_t: (food_3*com_t/sum).toFixed(2),result_3_g: (food_3*com_g/sum).toFixed(2),
-		result_4_b: (food_4*com_b/sum).toFixed(2),result_4_t: (food_4*com_t/sum).toFixed(2),result_4_g: (food_4*com_g/sum).toFixed(2),
-		result_5_b: (food_5*com_b/sum).toFixed(2),result_5_t: (food_5*com_t/sum).toFixed(2),result_5_g: (food_5*com_g/sum).toFixed(2),
+		result_1_b: (food_1*com_b/sum).toFixed(2),result_1_t: (food_1*com_t/sum).toFixed(2),result_1_g: (food_1*com_g/sum).toFixed(2),result_1_a: (food_1*com_a/sum).toFixed(2),
+		result_2_b: (food_2*com_b/sum).toFixed(2),result_2_t: (food_2*com_t/sum).toFixed(2),result_2_g: (food_2*com_g/sum).toFixed(2),result_2_a: (food_2*com_a/sum).toFixed(2),
+		result_3_b: (food_3*com_b/sum).toFixed(2),result_3_t: (food_3*com_t/sum).toFixed(2),result_3_g: (food_3*com_g/sum).toFixed(2),result_3_a: (food_3*com_a/sum).toFixed(2),
+		result_4_b: (food_4*com_b/sum).toFixed(2),result_4_t: (food_4*com_t/sum).toFixed(2),result_4_g: (food_4*com_g/sum).toFixed(2),result_4_a: (food_4*com_a/sum).toFixed(2),
+		result_5_b: (food_5*com_b/sum).toFixed(2),result_5_t: (food_5*com_t/sum).toFixed(2),result_5_g: (food_5*com_g/sum).toFixed(2),result_5_a: (food_5*com_a/sum).toFixed(2),
 		})
 	}
 	
@@ -140,19 +141,23 @@ const Input = () => {
 				<input type="number" id="com_g" value={com_g} onChange={onChange}/>
 			</div>
 			<div>
+				<label>간부: </label>
+				<input type="number" id="com_a" value={com_a} onChange={onChange}/>
+			</div>
+			<div>
 				<button onClick={onClick}>계산하기</button>
 			</div>
 		
 			<h2>결과</h2>
 			<div>
 				<p>음식량 (kg): 음식1({food_1}) | 음식2({food_2}) | 음식3({food_3}) | 음식4({food_4}) | 음식5({food_5})</p>
-				<p>식수인원(명): 본부({com_b}) | 탄약({com_t}) | 경비({com_g})</p>
+				<p>식수인원(명): 본부({com_b}) | 탄약({com_t}) | 경비({com_g}) | 간부({com_a})</p>
 				<div>
-					<p>음식1: 본부({result_1_b}) | 탄약({result_1_t}) | 경비({result_1_g})</p>
-					<p>음식2: 본부({result_2_b}) | 탄약({result_2_t}) | 경비({result_2_g})</p>
-					<p>음식3: 본부({result_3_b}) | 탄약({result_3_t}) | 경비({result_3_g})</p>
-					<p>음식4: 본부({result_4_b}) | 탄약({result_4_t}) | 경비({result_4_g})</p>
-					<p>음식5: 본부({result_5_b}) | 탄약({result_5_t}) | 경비({result_5_g})</p>
+					<p>음식1: 본부({result_1_b}) | 탄약({result_1_t}) | 경비({result_1_g}) | 간부({result_1_a})</p>
+					<p>음식2: 본부({result_2_b}) | 탄약({result_2_t}) | 경비({result_2_g}) | 간부({result_2_a})</p>
+					<p>음식3: 본부({result_3_b}) | 탄약({result_3_t}) | 경비({result_3_g}) | 간부({result_3_a})</p>
+					<p>음식4: 본부({result_4_b}) | 탄약({result_4_t}) | 경비({result_4_g}) | 간부({result_4_a})</p>
+					<p>음식5: 본부({result_5_b}) | 탄약({result_5_t}) | 경비({result_5_g}) | 간부({result_5_a})</p>
 				</div>
 			</div>
 		</div>
