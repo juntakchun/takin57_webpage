@@ -4,19 +4,21 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Counter from "./pages/Counter";
 import Input from "./pages/Input";
+import Checkout from "./pages/checkout/Checkout"
 
 function App() {
   return (
     <div className="App">
       <nav>
-		<Link to="/">Home</Link> | <Link to="/about">About</Link> |{" "}
-		<Link to="/counter">Counter</Link>| <Link to="/input">Input</Link>
+		<Link to="/smartcook">똑똑한 취사병</Link>
+		
       </nav>
 	  <Routes>
 		<Route path="/" element={<Home />} />
 		<Route path="/about" element={<About />} />
 		<Route path="/counter" element={<Counter />} />
 		<Route path="/input" element={<Input />} />
+		<Route path="/smartcook" element={<Checkout />} />
 
 	  </Routes>
     </div>

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Button from '@mui/material/Button';
 
 const Input = () => {
 	const [inputs, setInputs] = useState({
@@ -77,6 +78,8 @@ const Input = () => {
 			...inputs,
 			[id]: value
 		});
+		console.log(inputs);
+		console.log(inputs);
 	}
 	
 
@@ -145,7 +148,7 @@ const Input = () => {
 				<input type="number" id="com_a" value={com_a} onChange={onChange}/>
 			</div>
 			<div>
-				<button onClick={onClick}>계산하기</button>
+				<Button variant="contained" onClick={onClick}>계산하기</Button>
 			</div>
 		
 			<h2>결과</h2>
